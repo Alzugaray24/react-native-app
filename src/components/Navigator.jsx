@@ -2,10 +2,10 @@ import { StyleSheet, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react";
-import ItemListCategory from "../screens/ItemListCategory";
-import Detail from "../screens/Detail";
 import Home from "../screens/Home";
 import Header from "./Header";
+import LoginScreen from "../screens/LoginScreen";
+import CategoryScreen from "../screens/CategoryScreen";
 
 const Navigator = () => {
   const Stack = createNativeStackNavigator();
@@ -16,14 +16,7 @@ const Navigator = () => {
         initialRouteName="Home"
         screenOptions={({ route, navigation }) => ({
           header: () => {
-            const title =
-              route.name === "Home"
-                ? "Home"
-                : route.name === "ItemListCategory"
-                ? route.params?.category || "Item List"
-                : route.name === "Detail"
-                ? route.params?.product.title
-                : "App";
+            const title = route.name === "Home" ? "Home" : "App";
             return <Header navigation={navigation} title={title} />;
           },
         })}
@@ -36,17 +29,17 @@ const Navigator = () => {
           }}
         />
         <Stack.Screen
-          name="ItemListCategory"
-          component={ItemListCategory}
-          options={({ route }) => ({
-            title: route.params?.category || "Item List",
-          })}
+          name="Login"
+          component={LoginScreen}
+          options={{
+            title: "Login",
+          }}
         />
         <Stack.Screen
-          name="Detail"
-          component={Detail}
+          name="Category"
+          component={CategoryScreen}
           options={{
-            title: "Details",
+            title: "Category",
           }}
         />
       </Stack.Navigator>

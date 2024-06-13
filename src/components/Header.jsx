@@ -23,24 +23,19 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "space-between",
     padding: 10,
     width: "100%",
     height: 70,
-    backgroundColor: colors.green900,
-  },
-  backButton: {
-    position: "absolute",
-    left: 10,
-    padding: 20,
-  },
-  backButtonPlaceholder: {
-    width: 44,
+    backgroundColor: colors.primary,
   },
   text: {
-    color: colors.green300,
+    color: colors.background,
     fontSize: 22,
     flex: 1,
     textAlign: "center",
+  },
+
+  backButton: {
+    position: "absolute",
   },
 });

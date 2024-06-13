@@ -1,12 +1,17 @@
 import React from "react";
-import { StyleSheet, View, FlatList } from "react-native";
+import { StyleSheet, View, Text, Pressable } from "react-native";
 import { colors } from "../global/colors";
-import Category from "./Category";
 
 const Home = ({ navigation }) => {
   return (
     <View style={styles.container}>
-      <Category navigation={navigation} />
+      <Pressable
+        style={styles.button}
+        onPress={() => navigation.navigate("Login")}
+        navigation={navigation}
+      >
+        <Text style={styles.content}>Ir al login</Text>
+      </Pressable>
     </View>
   );
 };
@@ -15,12 +20,22 @@ export default Home;
 
 const styles = StyleSheet.create({
   container: {
-    width: "100%",
-    backgroundColor: colors.green300,
     flex: 1,
-    flexDirection: "column",
+    backgroundColor: colors.disabledBackground,
     justifyContent: "center",
     alignItems: "center",
-    padding: 10,
+  },
+
+  button: {
+    backgroundColor: colors.buttonPrimaryBackground,
+    borderRadius: 10,
+    shadowOpacity: 0.5,
+    padding: 20,
+  },
+
+  content: {
+    color: colors.buttonPrimaryText,
+    fontSize: 16,
+    shadowColor: colors.shadowColor,
   },
 });
